@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://*.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://*.googleapis.com;">
+  <meta name="google-site-verification" content="ruGTyOfGggDgYacUG5ylXqRH7_4w-7otrTc-sQFPkV0" />
+  <title>University of Jordan GPA Calculator</title>
+  <meta name="author"
+    content="My name is Abdulhadi Waheed Abdel Fattah Jebreen, and I am currently studying Management Information Systems at the School of Business, University of Jordan, as part of the Nashama Business group">
+  <meta name="keywords"
+    content="الجامعة الاردنية , حساب المعدل , GPA Nashama, University of Jordan GPA, University of Jordan GPA tool, معدل الجامعة الأردنية, حاسبة العلامات, GPA Jordan, حساب GPA الجامعة الأردنية, حاسبة المعدل التراكمي, Grade Calculator Jordan" />
+  <meta name="description" content="احسب معدلك بكل سهولة اعداد الطالب عبد الهادي من نشامى الاعمال" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/gpa-h.dp.css">
+  <link rel="icon" type="image/webp" href="img/ALNASHAMA.webp">
+</head>
+
+<body>
+
+    <!-- قائمة جانبية تظهر عند الضغط على زر الهامبرغر (مطابقة لطريقة gpa) -->
+    <nav class="nav">
+      <ul class="nav__list">
+        <li class="nav__item"><a class="nav__link" href="gpa-pd.html" data-menu="home">الدبلوم المهني</a></li>
+        <li class="nav__item"><a class="nav__link" href="index.html" data-menu="home">البكالوريوس</a></li>
+        <li class="nav__item"><a class="nav__link" href="#" data-menu="home">الماجستير</a></li>
+        <li class="nav__item"><a class="nav__link" href="#" data-menu="home">الدكتوراة</a></li>
+      </ul>
+    </nav>
+
+  <div class="curved-header">
+    <label class="hamburger" role="button" tabindex="0" aria-expanded="false" aria-controls="burgerMenu" aria-label="Hamburger menu">
+      <input type="checkbox" id="burgerMenu">
+      <svg viewBox="0 0 32 32">
+        <path class="line line-top-bottom"
+          d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22">
+        </path>
+        <path class="line" d="M7 16 27 16"></path>
+      </svg>
+    </label>
+    <a href="index.html" class="header-logo-link">
+      <img src="img/ALNASHAMA.webp" alt="شعار النشامى" class="header-logo">
+    </a>
+    <div id="welcomeStars"></div>
+    <div class="theme-toggle">
+      <label class="theme-switch">
+        <input type="checkbox" class="theme-switch__checkbox" id="themeToggle">
+        <div class="theme-switch__container">
+          <div class="theme-switch__clouds"></div>
+          <div class="theme-switch__stars-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 55" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M135.831 3.00688C135.055 3.85027 134.111 4.29946 133 4.35447C134.111 4.40947 135.055 4.85867 135.831 5.71123C136.607 6.55462 136.996 7.56303 136.996 8.72727C136.996 7.95722 137.172 7.25134 137.525 6.59129C137.886 5.93124 138.372 5.39954 138.98 5.00535C139.598 4.60199 140.268 4.39114 141 4.35447C139.88 4.2903 138.936 3.85027 138.16 3.00688C137.384 2.16348 136.996 1.16425 136.996 0C136.996 1.16425 136.607 2.16348 135.831 3.00688ZM31 23.3545C32.1114 23.2995 33.0551 22.8503 33.8313 22.0069C34.6075 21.1635 34.9956 20.1642 34.9956 19C34.9956 20.1642 35.3837 21.1635 36.1599 22.0069C36.9361 22.8503 37.8798 23.2903 39 23.3545C38.2679 23.3911 37.5976 23.602 36.9802 24.0053C36.3716 24.3995 35.8864 24.9312 35.5248 25.5913C35.172 26.2513 34.9956 26.9572 34.9956 27.7273C34.9956 26.563 34.6075 25.5546 33.8313 24.7112C33.0551 23.8587 32.1114 23.4095 31 23.3545ZM0 36.3545C1.11136 36.2995 2.05513 35.8503 2.83131 35.0069C3.6075 34.1635 3.99559 33.1642 3.99559 32C3.99559 33.1642 4.38368 34.1635 5.15987 35.0069C5.93605 35.8503 6.87982 36.2903 8 36.3545C7.26792 36.3911 6.59757 36.602 5.98015 37.0053C5.37155 37.3995 4.88644 37.9312 4.52481 38.5913C4.172 39.2513 3.99559 39.9572 3.99559 40.7273C3.99559 39.563 3.6075 38.5546 2.83131 37.7112C2.05513 36.8587 1.11136 36.4095 0 36.3545ZM56.8313 24.0069C56.0551 24.8503 55.1114 25.2995 54 25.3545C55.1114 25.4095 56.0551 25.8587 56.8313 26.7112C57.6075 27.5546 57.9956 28.563 57.9956 29.7273C57.9956 28.9572 58.172 28.2513 58.5248 27.5913C58.8864 26.9312 59.3716 26.3995 59.9802 26.0053C60.5976 25.602 61.2679 25.3911 62 25.3545C60.8798 25.2903 59.9361 24.8503 59.1599 24.0069C58.3837 23.1635 57.9956 22.1642 57.9956 21C57.9956 22.1642 57.6075 23.1635 56.8313 24.0069ZM81 25.3545C82.1114 25.2995 83.0551 24.8503 83.8313 24.0069C84.6075 23.1635 84.9956 22.1642 84.9956 21C84.9956 22.1642 85.3837 23.1635 86.1599 24.0069C86.9361 24.8503 87.8798 25.2903 89 25.3545C88.2679 25.3911 87.5976 25.602 86.9802 26.0053C86.3716 26.3995 85.8864 26.9312 85.5248 27.5913C85.172 28.2513 84.9956 28.9572 84.9956 29.7273C84.9956 28.563 84.6075 27.5546 83.8313 26.7112C83.0551 25.8587 82.1114 25.4095 81 25.3545ZM136 36.3545C137.111 36.2995 138.055 35.8503 138.831 35.0069C139.607 34.1635 139.996 33.1642 139.996 32C139.996 33.1642 140.384 34.1635 141.16 35.0069C141.936 35.8503 142.88 36.2903 144 36.3545C143.268 36.3911 142.598 36.602 141.98 37.0053C141.372 37.3995 140.886 37.9312 140.525 38.5913C140.172 39.2513 139.996 39.9572 139.996 40.7273C139.996 39.563 139.607 38.5546 138.831 37.7112C138.055 36.8587 137.111 36.4095 136 36.3545ZM101.831 49.0069C101.055 49.8503 100.111 50.2995 99 50.3545C100.111 50.4095 101.055 50.8587 101.831 51.7112C102.607 52.5546 102.996 53.563 102.996 54.7273C102.996 53.9572 103.172 53.2513 103.525 52.5913C103.886 51.9312 104.372 51.3995 104.98 51.0053C105.598 50.602 106.268 50.3911 107 50.3545C105.88 50.2903 104.936 49.8503 104.16 49.0069C103.384 48.1635 102.996 47.1642 102.996 46C102.996 47.1642 102.607 48.1635 101.831 49.0069Z"
+                fill="currentColor"></path>
+            </svg>
+          </div>
+          <div class="theme-switch__circle-container">
+            <div class="theme-switch__sun-moon-container">
+              <div class="theme-switch__moon">
+                <div class="theme-switch__spot"></div>
+                <div class="theme-switch__spot"></div>
+                <div class="theme-switch__spot"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </label>
+    </div>
+  </div>
+  <!-- صف النجوم الثلاثة مع النصوص: قول، فعل، إنجاز -->
+  <div id="mainStarsRow"></div>
+  <!-- نهاية صف النجوم -->
+  <div class="container">
+    <label>هل هذا فصلك الأول؟</label>
+    <div class="button-group" id="isFirstSemester">
+      <button class="option-button selected" data-value="yes">نعم</button>
+      <button class="option-button" data-value="no">لا</button>
+    </div>
+
+    <label>عدد المواد</label>
+    <div class="button-group" id="courseCount">
+      <button class="option-button" data-value="1">1</button>
+      <button class="option-button" data-value="2">2</button>
+      <button class="option-button" data-value="3">3</button>
+      <button class="option-button selected" data-value="4">4</button>
+      <button class="option-button" data-value="5">5</button>
+      <button class="option-button" data-value="6">6</button>
+    </div>
+
+    <div id="studentStatusSection" class="hidden">
+      <label>وضع الطالب</label>
+      <div class="button-group" id="studentStatus">
+        <button class="option-button selected" data-value="دراسة منتظمة">دراسة منتظمة</button>
+        <button class="option-button" data-value="إنذار أول">إنذار أول</button>
+        <button class="option-button" data-value="إنذار نهائي">إنذار نهائي</button>
+        <button class="option-button" data-value="دراسة خاصة 1">دراسة خاصة 1</button>
+        <button class="option-button" data-value="دراسة خاصة 2">دراسة خاصة 2</button>
+        <button class="option-button" data-value="دراسة خاصة 3">دراسة خاصة 3</button>
+      </div>
+
+      <label>نوع الفصل</label>
+      <div class="button-group" id="semesterType">
+        <button class="option-button selected" data-value="نظامي">نظامي</button>
+        <button class="option-button" data-value="صيفي">صيفي</button>
+      </div>
+
+      <label>هل هذا تخصصك الأول في الجامعة الاردنية؟</label>
+      <div class="button-group" id="isFirstMajor">
+        <button class="option-button selected" data-value="yes">نعم</button>
+        <button class="option-button" data-value="no">لا</button>
+      </div>
+    </div>
+
+    <div id="previousDataSection" class="hidden">
+      <label for="previousGPA">المعدل التراكمي</label>
+      <input type="number" id="previousGPA" step="0.01" min="0.50" max="4.00" placeholder="يرجى أدخل المعدل التراكمي">
+      <label for="previousHours">الساعات التراكمية</label>
+      <input type="number" id="previousHours" step="1" min="1" placeholder="يرجى أدخل عدد الساعات التراكمي">
+    </div>
+
+    <section id="coursesContainer"></section>
+
+    <section>
+      <button id="calculateButton">احسب المعدل</button>
+    </section>
+
+    <section>
+      <button id="resetButton" class="hidden">حساب معدل جديد</button>
+    </section>
+
+    <section id="resultSection" class="hidden result"></section>
+  </div>
+
+  <footer class="footer">
+    <div class="footer__content">
+      <p>إعداد الطالب: عبد الهادي وحيد عبد الفتاح جبرين</p>
+      <p>من كادر نشامى الاعمال</p>
+      <p>كلية الأعمال - قسم نظم المعلومات الإدارية</p>
+      <p>© 2025 جميع الحقوق محفوظة</p>
+    </div>
+    <!-- قسم الأسئلة الشائعة داخل الفوتر -->
+    <section class="faq-section">
+      <div class="faq-list">
+
+
+        <div class="faq-item">
+          <button class="faq-question" aria-label="Open FAQ question"><span>ما هو الحد الأدنى للنجاح؟</span></button>
+          <div class="faq-answer">
+            <p><strong>الحد الأدنى للنجاح في المادة:</strong> الرمز <b>ج+</b></p>
+            <p><strong>الحد الأدنى للنجاح في المعدل التراكمي:</strong> 3.00 من 4.00 حسب تعليمات الجامعة الأردنية.</p>
+          </div>
+        </div>
+
+
+        <section id="grading-system-faq-section" class="faq-item"></section>
+
+
+      </div>
+    </section>
+    <p class="only-bachelor-warning">حاسبة المعدل التراكمي هذه مخصصة لطلاب الدبلوم العالي في الجامعة الأردنية فقط.</p>
+  </footer>
+
+  <script src="js/gpa-h.dp.js"></script>
+</body>
+
+</html>
